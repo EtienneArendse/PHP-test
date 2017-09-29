@@ -1,0 +1,10 @@
+version: '2'
+services:
+  apache:
+    image: limabeanteam/apache:portfolio-collection
+    restart: always
+    volumes:
+      - ./docker/apache/site.conf:/etc/apache2/sites-enabled/000-default.conf
+      - .:/var/www/code
+    ports:
+      - "80:80"
