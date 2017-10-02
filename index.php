@@ -9,6 +9,7 @@ $sql = "SELECT * FROM customers";
 $result = $database->query($sql);
 $found_user = $database->fetch_array($result);
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,43 +26,47 @@ $found_user = $database->fetch_array($result);
     <th>sa_id_number</th>
     <th>address</th>
   </tr>
+  <?php if(!empty($found_user)): ?>
+  <?php foreach($found_user as $user): ?>
   <tr>
   <td>
   <?php
-    echo $found_user['id'];
+    echo $user[0];
   ?>
   </td>
   <td>
   <?php
-    echo $found_user['name'];
+    echo $user[1];
   ?>
   </td>
   <td>
   <?php
-    echo $found_user['surname'];
+    echo $user[2];
   ?>
   </td>
   <td>
   <?php
-    echo $found_user['contact_number'];
+    echo $user[3];
   ?>
   </td>
   <td>
   <?php
-    echo $found_user['email'];
+    echo $user[4];
   ?>
   </td>
   <td>
   <?php
-    echo $found_user['sa_id_number'];
+    echo $user[5];
   ?>
   </td>
   <td>
   <?php
-    echo $found_user['address'];
+    echo $user[6];
   ?>
   </td>
   </tr>
+<?php endforeach; ?>
+<?php endif; ?>
 </table>
 </body>
 </html>

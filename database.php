@@ -49,7 +49,7 @@ class mysql_database
 
     public function fetch_array($result_set)
     {
-        return mysqli_fetch_assoc($result_set);
+        return mysqli_fetch_all($result_set);
     }
 
     public function num_rows($result_set) {
