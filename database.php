@@ -2,7 +2,6 @@
 
 class mysql_database
 {
-    // Class properties and methods go here
     private $connection;
 
     function __construct() {
@@ -43,9 +42,26 @@ class mysql_database
         }
     }
 
-    public function mysql_prep($string) {
+    public function escape_value($string) {
         $escaped_string = mysqli_real_escape_string($this->connection, $string);
         return $escaped_string;
+    }
+
+    public function fetch_array($result_set)
+    {
+        return mysqli_fetch_assoc($result_set);
+    }
+
+    public function num_rows($result_set) {
+        return mysqli_num_rows($result_set);
+    }
+
+    public function insert_id() {
+        return mysqli_insert_id($this->connection);
+    }
+
+    public function affected_rows() {
+        return mysqli_affected_rows($this->connection);
     }
 }
 
