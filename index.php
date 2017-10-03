@@ -3,11 +3,11 @@
 ini_set('display_errors', 1);
 error_reporting(~0);
 
-require_once("database.php");
+require_once("admin_content.php");
 
-$sql = "SELECT * FROM customers";
-$result = $database->query($sql);
-$found_user = $database->fetch_array($result);
+var_dump($row);
+exit;
+
 ?>
 
 <!DOCTYPE html>
@@ -26,8 +26,8 @@ $found_user = $database->fetch_array($result);
     <th>sa_id_number</th>
     <th>address</th>
   </tr>
-  <?php if(!empty($found_user)): ?>
-  <?php foreach($found_user as $user): ?>
+  <?php if(!empty($users)): ?>
+  <?php foreach($users as $user): ?>
   <tr>
   <td>
   <?php
