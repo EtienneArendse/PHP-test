@@ -5,9 +5,6 @@ error_reporting(~0);
 
 require_once("admin_content.php");
 
-var_dump($row);
-exit;
-
 ?>
 
 <!DOCTYPE html>
@@ -26,42 +23,42 @@ exit;
     <th>sa_id_number</th>
     <th>address</th>
   </tr>
-  <?php if(!empty($users)): ?>
-  <?php foreach($users as $user): ?>
+  <?php if(!empty($result_set)): ?>
+  <?php foreach($result_set as $user): ?>
   <tr>
   <td>
   <?php
-    echo $user[0];
+    echo $user['id'];
   ?>
   </td>
   <td>
   <?php
-    echo $user[1];
+    echo $user['name'];
   ?>
   </td>
   <td>
   <?php
-    echo $user[2];
+    echo $user['surname'];
   ?>
   </td>
   <td>
   <?php
-    echo $user[3];
+    echo $user['contact_number'];
   ?>
   </td>
   <td>
   <?php
-    echo $user[4];
+    echo $user['email'];
   ?>
   </td>
   <td>
   <?php
-    echo $user[5];
+    echo $user['sa_id_number'];
   ?>
   </td>
   <td>
   <?php
-    echo $user[6];
+    echo $user['address'];
   ?>
   </td>
   </tr>
