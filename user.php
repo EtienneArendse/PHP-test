@@ -27,6 +27,8 @@ class User {
     public function update($user_id) {
         global $database;
         $result_set = self::find_this_query("UPDATE customers SET name WHERE id = $user_id LIMIT 1");
+        $found_user = mysqli_fetch_assoc($result_set);
+        return $found_user;
     }
 }
 

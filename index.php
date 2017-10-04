@@ -65,7 +65,7 @@ require_once("admin_content.php");
         <td>
         <!-- <a href="update_user.php">Edit</a> -->
         <form action="update_user.php" method="get">
-        <input type="hidden" value="<?php echo $user['id']; ?>">
+        <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
         <input type="submit" value="edit">
         </form>
         </td>
