@@ -23,6 +23,11 @@ class User {
         $result_set = $database->query($sql);
         return $result_set;
     }
+
+    public function update($user_id) {
+        global $database;
+        $result_set = self::find_this_query("UPDATE customers SET name WHERE id = $user_id LIMIT 1");
+    }
 }
 
 
