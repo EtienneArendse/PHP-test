@@ -1,5 +1,7 @@
 <?php
 
+// database setup
+
 class mysql_database
 {
     private $connection;
