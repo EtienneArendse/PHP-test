@@ -7,6 +7,13 @@ error_reporting(~0);
 
 require_once("admin_content.php");
 
+if (isset($_GET["update"]) && ($_GET["update"] == "success")) {
+  echo "<script>
+  alert('Customer successfully updated');
+  </script>";
+}
+
+
 ?>
 
 <!DOCTYPE html>

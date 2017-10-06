@@ -72,7 +72,6 @@ if(!empty($_GET)) {
         $result_set = User::find_this_query("UPDATE customers SET name='$edited_name', surname='$edited_surname', contact_number='$edited_contact_number', email='$edited_email', sa_id_number='$edited_sa_id_number', address='$edited_address' WHERE id = $id");
 
         if($result_set) {
-            // echo ("Customer successfully updated");
             header('Location: http://localhost/index.php?update=success');
         }
         else {
