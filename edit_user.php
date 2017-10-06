@@ -7,23 +7,80 @@ error_reporting(~0);
 include("user.php");
 
 if(!empty($_GET)) {
-    $id = $_GET['id'];
-    $edited_name = $_GET['name'];
-    $edited_surname = $_GET['surname'];
-    $edited_contact_number = $_GET['contact_number'];
-    $edited_email = $_GET['email'];
-    $edited_sa_id_number = $_GET['sa_id_number'];
-    $edited_address = $_GET['address'];
+    $edit_validator = 0;
 
-    global $database;
-    $result_set = User::find_this_query("UPDATE customers SET name='$edited_name', surname='$edited_surname', contact_number='$edited_contact_number', email='$edited_email', sa_id_number='$edited_sa_id_number', address='$edited_address' WHERE id = $id");
+    if (empty($_GET['id'])){
+        $edit_validator++;
+    } else {
+        $id = $_GET['id'];
+    }
+    
+    if (empty($_GET['name'])){
+        $edit_validator++;
+        $nameErr = "Name is required";
+    } else {
+        $edited_name = ucfirst(trim($_GET['name']));
+    }
 
-    if($result_set) {
-        header('Location: http://localhost/index.php?update=success');
+    if (empty($_GET['surname'])){
+        $edit_validator++;
+        $surnameErr = "Surname is required";
+    } else {
+        $edited_surname = ucfirst(trim($_GET['surname']));
     }
-    else {
-        header('Location: http://localhost/update_user.php?update=failed'); 
+    
+    if (empty($_GET['contact_number'])){
+        $edit_validator++;
+        $contact_numberErr = "Contact number is required";
+    } else {
+        $edited_contact_number = $_GET['contact_number'];
     }
+
+    if (empty($_GET['email'])){
+        $edit_validator++;
+        $emailErr = "Email is required";
+    } else {
+        $edited_email = trim($_GET['email']);
+    }
+    
+    if (empty($_GET['sa_id_number'])){
+        $edit_validator++;
+        $sa_id_numberErr = "RSA ID number is required";
+    } else {
+        $edited_sa_id_number = trim($_GET['sa_id_number']);
+    }
+    
+    if (empty($_GET['address'])){
+        $edit_validator++;
+        $addressErr = "Address is required";
+    } else {
+        $edited_address = $_GET['address'];
+    }
+
+    if ($edit_validator > 0) {
+        $blank_err = 'id=' . $id;
+        $blank_err .= '&name=' . $nameErr;
+        $blank_err .= '&surname=' . $surnameErr;
+        $blank_err .= '&contact_number=' . $contact_numberErr;
+        $blank_err .= '&email=' . $emailErr;
+        $blank_err .= '&sa_id_number=' . $sa_id_numberErr;
+        $blank_err .= '&address=' . $addressErr;
+        header('Location: http://localhost/update_user.php?' . $blank_err);
+
+    } else {
+        global $database;
+        $result_set = User::find_this_query("UPDATE customers SET name='$edited_name', surname='$edited_surname', contact_number='$edited_contact_number', email='$edited_email', sa_id_number='$edited_sa_id_number', address='$edited_address' WHERE id = $id");
+
+        if($result_set) {
+            // echo ("Customer successfully updated");
+            header('Location: http://localhost/index.php?update=success');
+        }
+        else {
+            header('Location: http://localhost/update_user.php?update=failed'); 
+        }
+    }
+
+    
 }
 else {
     return error;
