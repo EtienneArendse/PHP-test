@@ -25,6 +25,12 @@ if (isset($_GET["add"]) && ($_GET["add"] == "success")) {
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+      .customerAnchor:link    {color:orange;}
+      .customerAnchor:visited {color:green;}
+      .customerAnchor:hover   {color:yellow;}
+      .customerAnchor:active  {color:red;}
+    </style>
   </head>
 
   <body>
@@ -88,6 +94,6 @@ if (isset($_GET["add"]) && ($_GET["add"] == "success")) {
       <?php endif; ?>
     </table>
 
-    <<a href="add_user_front.php">Add Customer</a>
+    <a href="add_user_front.php" class="customerAnchor">Add Customer</a>
   </body>
 </html>
