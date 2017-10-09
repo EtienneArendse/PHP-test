@@ -13,6 +13,12 @@ if (isset($_GET["update"]) && ($_GET["update"] == "success")) {
   </script>";
 }
 
+if (isset($_GET["add"]) && ($_GET["add"] == "success")) {
+  echo "<script>
+  alert('Customer successfully added');
+  </script>";
+}
+
 
 ?>
 
@@ -81,5 +87,7 @@ if (isset($_GET["update"]) && ($_GET["update"] == "success")) {
       <?php endforeach; ?>
       <?php endif; ?>
     </table>
+
+    <<a href="add_user_front.php">Add Customer</a>
   </body>
 </html>
