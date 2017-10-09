@@ -64,7 +64,8 @@ if(!empty($_GET)) {
 
     } else {
         global $database;
-        $result_set = User::find_this_query("INSERT INTO customers (name, surname, contact_number, email, sa_id_number, address) VALUES ('$edited_name', '$edited_surname', '$edited_contact_number', '$edited_email', '$edited_sa_id_number', '$edited_address')");
+        $result_set = User::add_user($edited_name, $edited_surname, $edited_contact_number, $edited_email, $edited_sa_id_number, $edited_address);
+        
 
         if($result_set) {
             header('Location: http://localhost/index.php?add=success');

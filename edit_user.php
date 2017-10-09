@@ -70,8 +70,8 @@ if(!empty($_GET)) {
 
     } else {
         global $database;
-        $result_set = User::find_this_query("UPDATE customers SET name='$edited_name', surname='$edited_surname', contact_number='$edited_contact_number', email='$edited_email', sa_id_number='$edited_sa_id_number', address='$edited_address' WHERE id = $id");
-
+        $result_set = User::edit_user($id, $edited_name, $edited_surname, $edited_contact_number, $edited_email, $edited_sa_id_number, $edited_address);
+        
         if($result_set) {
             header('Location: http://localhost/index.php?update=success');
         }
