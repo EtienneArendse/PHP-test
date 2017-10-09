@@ -19,6 +19,12 @@ if (isset($_GET["add"]) && ($_GET["add"] == "success")) {
   </script>";
 }
 
+if (isset($_GET["delete"]) && ($_GET["delete"] == "success")) {
+  echo "<script>
+  alert('Customer successfully deleted from database');
+  </script>";
+}
+
 
 ?>
 
@@ -87,6 +93,11 @@ if (isset($_GET["add"]) && ($_GET["add"] == "success")) {
         <form action="update_user.php" method="get">
         <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
         <input type="submit" value="edit">
+        </form>
+
+        <form action="delete_user.php" method="get">
+        <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
+        <input type="submit" value="delete">
         </form>
         </td>
       </tr>
