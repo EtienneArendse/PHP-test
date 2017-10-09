@@ -72,7 +72,6 @@ if (isset($_GET["update"]) && ($_GET["update"] == "success")) {
           ?>
         </td>
         <td>
-        <!-- <a href="update_user.php">Edit</a> -->
         <form action="update_user.php" method="get">
         <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
         <input type="submit" value="edit">

@@ -1,5 +1,7 @@
 <?php
 
+// put the contents of this file into 'index.php' later
+
 ini_set('display_errors', 1);
 error_reporting(~0);
 

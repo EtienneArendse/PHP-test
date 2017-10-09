@@ -1,4 +1,5 @@
 <?php
+
 // edit customer back-end functionality
 
 ini_set('display_errors', 1);
