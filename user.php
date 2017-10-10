@@ -5,7 +5,7 @@ error_reporting(~0);
 
 include("database.php");
 
-// queries setup
+// customer queries setup
 
 class User {
     

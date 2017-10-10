@@ -1,3 +1,17 @@
+<?php
+
+// dvds table front-end
+
+ini_set('display_errors', 1);
+error_reporting(~0);
+
+include("dvd_queries.php");
+
+$result_set = DVD::find_all_DVDs();
+
+?>
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -64,5 +78,10 @@
     </table>
 
     <a href="add_dvd_front.php" class="dvdAnchor">Add DVD</a>
+
+    <br><br>
+
+    <a href="index.php" class="customerAnchor">Customers</a>
+
   </body>
 </html>

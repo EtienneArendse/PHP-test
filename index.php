@@ -112,5 +112,10 @@ if (isset($_GET["delete"]) && ($_GET["delete"] == "success")) {
     </table>
 
     <a href="add_user_front.php" class="customerAnchor">Add Customer</a>
+
+    <br><br>
+
+    <a href="dvd.php" class="customerAnchor">DVDs</a>
+
   </body>
 </html>
