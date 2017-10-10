@@ -48,7 +48,7 @@ if(!empty($_GET)) {
 
     } else {
         global $database;
-        $result_set = User::add_user($edited_name, $edited_description, $edited_release_date, $edited_category);
+        $result_set = DVD::add_user($edited_name, $edited_description, $edited_release_date, $edited_category);
         
 
         if($result_set) {
