@@ -57,7 +57,7 @@ $result_set = DVD::find_all_DVDs();
         </td>
         <td>
           <?php
-          echo $dvd['category'];
+          echo $dvd['category_id'];
           ?>
         </td>
 

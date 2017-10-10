@@ -21,7 +21,7 @@ if(!empty($_GET['id'])) {
     </head>
 
     <body>
-        <form action="add_dvd_back.php" method="get">
+        <form action="add_dvd_back.php" method="POST">
 
             name:<br>
             <input type="text" name="name">
@@ -35,9 +35,9 @@ if(!empty($_GET['id'])) {
             <input type="text" name="release_date">
             <span class="error"> <?php if(!empty($_GET['release_date'])) { echo "* " . $_GET['release_date']; } ?></span>
             <br>
-            category:<br>
-            <input type="text" name="category">
-            <span class="error"> <?php if(!empty($_GET['category'])) { echo "* " . $_GET['category']; } ?></span>
+            category_id:<br>
+            <input type="text" name="category_id">
+            <span class="error"> <?php if(!empty($_GET['category_id'])) { echo "* " . $_GET['category_id']; } ?></span>
             <br>
 
             <input type="submit" value="Submit">

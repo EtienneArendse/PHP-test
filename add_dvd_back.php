@@ -1,5 +1,7 @@
 <?php
 
+var_dump($_POST);
+
 // add DVD back-end functionality
 
 ini_set('display_errors', 1);
@@ -7,35 +9,35 @@ error_reporting(~0);
 
 include("dvd_queries.php");
 
-if(!empty($_GET)) {
+if(!empty($_POST)) {
     $edit_validator = 0;
 
-    if (empty($_GET['name'])){
+    if (empty($_POST['name'])){
         $edit_validator++;
         $nameErr = "Name is required";
     } else {
-        $edited_name = $_GET['name'];
+        $edited_name = $_POST['name'];
     }
 
-    if (empty($_GET['description'])){
+    if (empty($_POST['description'])){
         $edit_validator++;
         $descriptionErr = "Description is required";
     } else {
-        $edited_description = $_GET['description'];
+        $edited_description = $_POST['description'];
     }
     
-    if (empty($_GET['release_date'])){
+    if (empty($_POST['release_date'])){
         $edit_validator++;
         $release_dateErr = "Release date is required";
     } else {
-        $edited_release_date = $_GET['release_date'];
+        $edited_release_date = $_POST['release_date'];
     }
 
-    if (empty($_GET['category'])){
+    if (empty($_POST['category_id'])){
         $edit_validator++;
-        $categoryErr = "Category is required";
+        $category_idErr = "Category ID is required";
     } else {
-        $edited_category = $_GET['category'];
+        $edited_category_id = $_POST['category_id'];
     }
     
     if ($edit_validator > 0) {
@@ -43,14 +45,13 @@ if(!empty($_GET)) {
         $blank_err .= '&name=' . $nameErr;
         $blank_err .= '&description=' . $descriptionErr;
         $blank_err .= '&release_date=' . $release_dateErr;
-        $blank_err .= '&category=' . $categoryErr;
+        $blank_err .= '&category_id=' . $category_idErr;
         header('Location: http://localhost/add_dvd_front.php?' . $blank_err);
 
     } else {
         global $database;
-        $result_set = DVD::add_DVD($edited_name, $edited_description, $edited_release_date, $edited_category);
+        $result_set = DVD::add_DVD($edited_name, $edited_description, $edited_release_date, $edited_category_id);
         
-
         if($result_set) {
             header('Location: http://localhost/dvd.php?add=success');
         }

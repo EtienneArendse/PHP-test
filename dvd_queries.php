@@ -25,8 +25,8 @@ class DVD {
         return $found_dvd;
     }
 
-    public static function add_DVD($edited_name, $edited_description, $edited_release_date, $edited_category) {
-        return self::find_this_query("INSERT INTO dvd (name, description, release_date, category) VALUES ('$edited_name', '$edited_description', '$edited_release_date', '$edited_category')");
+    public static function add_DVD($edited_name, $edited_description, $edited_release_date, $edited_category_id) {
+        return self::find_this_query("INSERT INTO dvd (name, description, release_date, category_id) VALUES ('$edited_name', '$edited_description', '$edited_release_date', '$edited_category_id')");
     }
 }
 ?>
