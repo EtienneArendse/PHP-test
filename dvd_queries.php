@@ -8,8 +8,12 @@ include("database.php");
 // dvd queries setup
 
 class DVD {
-    public static function find_all_DVDs() {
-        return self::find_this_query("SELECT * FROM dvd");
+    // public static function find_all_DVDs() {
+    //     return self::find_this_query("SELECT * FROM dvd");
+    // }
+
+    public static function find_dvd_by_category_name() {
+        return self::find_this_query("SELECT dvd.id, dvd.name, dvd.description, dvd.release_date, category.category_name FROM dvd INNER JOIN category ON dvd.category_id=category.id");
     }
 
     public static function find_this_query($sql) {

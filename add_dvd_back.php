@@ -34,11 +34,11 @@ if(!empty($_POST)) {
         $edited_release_date = $_POST['release_date'];
     }
 
-    if (empty($_POST['category_id'])){
+    if (empty($_POST['category_name'])){
         $edit_validator++;
-        $category_idErr = "Category ID is required";
+        $category_nameErr = "Category name is required";
     } else {
-        $edited_category_id = $_POST['category_id'];
+        $edited_category_name = $_POST['category_name'];
     }
     
     if ($edit_validator > 0) {
@@ -46,12 +46,12 @@ if(!empty($_POST)) {
         $blank_err .= '&name=' . $nameErr;
         $blank_err .= '&description=' . $descriptionErr;
         $blank_err .= '&release_date=' . $release_dateErr;
-        $blank_err .= '&category_id=' . $category_idErr;
+        $blank_err .= '&category_id=' . $category_nameErr;
         header('Location: http://localhost/add_dvd_front.php?' . $blank_err);
 
     } else {
         global $database;
-        $result_set = DVD::add_DVD($edited_name, $edited_description, $edited_release_date, $edited_category_id);
+        $result_set = DVD::add_DVD($edited_name, $edited_description, $edited_release_date, $edited_category_name);
         
         if($result_set) {
             header('Location: http://localhost/dvd.php?add=success');

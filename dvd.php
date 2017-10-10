@@ -7,7 +7,7 @@ error_reporting(~0);
 
 include("dvd_queries.php");
 
-$result_set = DVD::find_all_DVDs();
+$result_set = DVD::find_dvd_by_category_name();
 
 ?>
 
@@ -30,7 +30,7 @@ $result_set = DVD::find_all_DVDs();
         <th>name</th> 
         <th>description</th>
         <th>release_date</th>
-        <th>category</th>
+        <th>category_name</th>
         <th>actions</th>
       </tr>
       <?php if(!empty($result_set)): ?>
@@ -58,7 +58,7 @@ $result_set = DVD::find_all_DVDs();
         </td>
         <td>
           <?php
-          echo $dvd['category_id'];
+          echo $dvd['category_name'];
           ?>
         </td>
 
