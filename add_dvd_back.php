@@ -30,6 +30,7 @@ if(!empty($_POST)) {
         $edit_validator++;
         $release_dateErr = "Release date is required";
     } else {
+        $edited_release_date = date("Y-m-d");
         $edited_release_date = $_POST['release_date'];
     }
 

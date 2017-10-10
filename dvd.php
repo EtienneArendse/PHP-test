@@ -31,6 +31,7 @@ $result_set = DVD::find_all_DVDs();
         <th>description</th>
         <th>release_date</th>
         <th>category</th>
+        <th>actions</th>
       </tr>
       <?php if(!empty($result_set)): ?>
       <?php foreach($result_set as $dvd): ?>
