@@ -9,6 +9,25 @@ include("dvd_queries.php");
 
 $result_set = DVD::find_dvd_by_category_name();
 
+if (isset($_GET["edit"]) && ($_GET["edit"] == "success")) {
+  echo "<script>
+  alert('DVD successfully updated');
+  </script>";
+}
+
+if (isset($_GET["add"]) && ($_GET["add"] == "success")) {
+  echo "<script>
+  alert('DVD successfully added');
+  </script>";
+}
+
+if (isset($_GET["delete"]) && ($_GET["delete"] == "success")) {
+  echo "<script>
+  alert('DVD successfully deleted from database');
+  </script>";
+}
+
+
 ?>
 
 

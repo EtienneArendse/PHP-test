@@ -10,7 +10,7 @@ include("database.php");
 class DVD {
 
     public static function find_dvd_by_category_name() {
-        return self::find_this_query("SELECT dvd.id, dvd.name, dvd.description, dvd.release_date, category.category_name FROM dvd INNER JOIN category ON dvd.category_id=category.id");
+        return self::find_this_query("SELECT dvd.id, dvd.name, dvd.description, dvd.release_date, category.category_name FROM dvd INNER JOIN category ON dvd.category_id=category.id WHERE deleted IS NULL");
     }
 
     public static function find_this_query($sql) {
@@ -32,6 +32,10 @@ class DVD {
 
     public static function edit_DVD($id, $edited_name, $edited_description, $edited_release_date, $edited_category_id) {
         return self::find_this_query("UPDATE dvd SET name='$edited_name', description='$edited_description', release_date='$edited_release_date', category_id='$edited_category_id' WHERE id = $id");
+    }
+
+    public static function delete_DVD($id, $date) {
+        return self::find_this_query("UPDATE dvd SET deleted='$date' WHERE id = $id");
     }
 }
 ?>
