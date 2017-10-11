@@ -12,10 +12,10 @@ include("dvd_queries.php");
 if(!empty($_POST)) {
     $edit_validator = 0;
 
-    if (empty($_GET['id'])){
+    if (empty($_POST['id'])){
         $edit_validator++;
     } else {
-        $id = $_GET['id'];
+        $id = $_POST['id'];
     }
 
     if (empty($_POST['name'])){
@@ -60,10 +60,10 @@ if(!empty($_POST)) {
         $result_set = DVD::edit_DVD($id, $edited_name, $edited_description, $edited_release_date, $edited_category_name);
         
         if($result_set) {
-            header('Location: http://localhost/dvd.php?add=success');
+            header('Location: http://localhost/dvd.php?edit=success');
         }
         else {
-            header('Location: http://localhost/edit_dvd_front.php?add=failed'); 
+            header('Location: http://localhost/edit_dvd_front.php?edit=failed'); 
         }
     }
 

@@ -25,15 +25,15 @@ if(!empty($_GET['id'])) {
 
             name:<br>
             <input type="text" name="name">
-            <span class="error"> <?php if(!empty($_GET['name'])) { echo "*" . $_GET['name']; } ?></span>
+            <span class="error"> <?php if(!empty($_POST['name'])) { echo "*" . $_POST['name']; } ?></span>
             <br>
             description:<br>
             <input type="text" name="description">
-            <span class="error"> <?php if(!empty($_GET['description'])) { echo "* " . $_GET['description']; } ?></span>
+            <span class="error"> <?php if(!empty($_POST['description'])) { echo "* " . $_POST['description']; } ?></span>
             <br>
             release_date:<br>
             <input type="date" name="release_date">
-            <span class="error"> <?php if(!empty($_GET['release_date'])) { echo "* " . $_GET['release_date']; } ?></span>
+            <span class="error"> <?php if(!empty($_POST['release_date'])) { echo "* " . $_POST['release_date']; } ?></span>
             <br>
             category_id:<br>
             
@@ -45,12 +45,12 @@ if(!empty($_GET['id'])) {
                     <option value="5">Family</option>
                 </select>
 
-            <span class="error"> <?php if(!empty($_GET['category_id'])) { echo "* " . $_GET['category_id']; } ?></span>
+            <span class="error"> <?php if(!empty($_POST['category_id'])) { echo "* " . $_POST['category_id']; } ?></span>
             <br>
             <br><br>
 
             <input type="hidden" name="id" value="<?php echo $result_set['id']; ?>">
-            
+
             <input type="submit" value="Submit">
 
         </form>
