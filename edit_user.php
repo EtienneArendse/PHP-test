@@ -79,8 +79,6 @@ if(!empty($_GET)) {
             header('Location: http://localhost/update_user.php?update=failed'); 
         }
     }
-
-    
 }
 else {
     return error;

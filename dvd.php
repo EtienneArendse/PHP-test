@@ -63,7 +63,7 @@ $result_set = DVD::find_dvd_by_category_name();
         </td>
 
         <td>
-        <form action="update_dvd.php" method="get">
+        <form action="edit_dvd_front.php" method="get">
         <input type="hidden" name="id" value="<?php echo $dvd['id']; ?>">
         <input type="submit" value="edit">
         </form>
