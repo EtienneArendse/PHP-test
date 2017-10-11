@@ -7,7 +7,7 @@ error_reporting(~0);
 
 // include("order_back.php");
 
-// $result_set = order::find_all_orders();
+// $result_set = Order::find_all_orders();
 
 
 
