@@ -1,34 +1,36 @@
 <?php
 
-// customers table front-end
+// orders table front-end
 
 ini_set('display_errors', 1);
 error_reporting(~0);
 
-include("user.php");
+// include("order_back.php");
 
-$result_set = User::find_all_users();
+// $result_set = order::find_all_orders();
 
-// $found_user = User::find_user_by_id(3);
-// echo $found_user['surname'];
+
+
+// $found_order = order::find_order_by_id(3);
+// echo $found_order['surname'];
 
 // require_once("admin_content.php");
 
 if (isset($_GET["update"]) && ($_GET["update"] == "success")) {
   echo "<script>
-  alert('Customer successfully updated');
+  alert('Order successfully updated');
   </script>";
 }
 
 if (isset($_GET["add"]) && ($_GET["add"] == "success")) {
   echo "<script>
-  alert('Customer successfully added');
+  alert('Order successfully added');
   </script>";
 }
 
 if (isset($_GET["delete"]) && ($_GET["delete"] == "success")) {
   echo "<script>
-  alert('Customer successfully deleted from database');
+  alert('Order successfully deleted from database');
   </script>";
 }
 
@@ -49,60 +51,49 @@ if (isset($_GET["delete"]) && ($_GET["delete"] == "success")) {
     <table style="width:100%">
       <tr>
         <th>id</th>
-        <th>name</th> 
-        <th>surname</th>
-        <th>contact_number</th>
-        <th>email</th>
-        <th>sa_id_number</th>
-        <th>address</th>
+        <th>customer_id</th> 
+        <th>rent_date</th>
+        <th>due_date</th>
+        <th>actual_return_date</th>
         <th>actions</th>
       </tr>
       <?php if(!empty($result_set)): ?>
-      <?php foreach($result_set as $user): ?>
+      <?php foreach($result_set as $order): ?>
       <tr>
         <td>
           <?php
-          echo $user['id'];
+          echo $order['id'];
           ?>
           </td>
         <td>
           <?php
-          echo $user['name'];
+          echo $order['customer_id'];
           ?>
         </td>
         <td>
           <?php
-          echo $user['surname'];
+          echo $order['rent_date'];
           ?>
         </td>
         <td>
           <?php
-          echo $user['contact_number'];
+          echo $order['due_date'];
           ?>
         </td>
         <td>
           <?php
-          echo $user['email'];
+          echo $order['actual_return_date'];
           ?>
         </td>
+       
         <td>
-          <?php
-          echo $user['sa_id_number'];
-          ?>
-        </td>
-        <td>
-          <?php
-          echo $user['address'];
-          ?>
-        </td>
-        <td>
-        <form action="update_user.php" method="get">
-        <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
+        <form action="update_order.php" method="get">
+        <input type="hidden" name="id" value="<?php echo $order['id']; ?>">
         <input type="submit" value="edit">
         </form>
 
-        <form action="delete_user.php" method="get">
-        <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
+        <form action="delete_order.php" method="get">
+        <input type="hidden" name="id" value="<?php echo $order['id']; ?>">
         <input type="submit" value="delete">
         </form>
         </td>
@@ -111,15 +102,11 @@ if (isset($_GET["delete"]) && ($_GET["delete"] == "success")) {
       <?php endif; ?>
     </table>
 
-    <a href="add_user_front.php" class="customerAnchor">Add Customer</a>
+    <a href="add_order_front.php" class="customerAnchor">Add Order</a>
 
     <br><br>
 
-    <a href="dvd.php" class="customerAnchor">DVDs</a>
-
-    <br><br>
-
-    <a href="order.php" class="customerAnchor">Orders</a>
+    <a href="index.php" class="customerAnchor">Customers</a>
 
   </body>
 </html>
