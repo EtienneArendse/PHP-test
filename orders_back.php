@@ -47,6 +47,11 @@ class orders {
     public static function add_orders($edited_rent_date, $edited_due_date, $edited_actual_return_date, $edited_customer_name, $edited_customer_surname, $edited_dvd_name) {
         return self::find_this_query("INSERT INTO orders (rent_date, due_date, actual_return_date, name, surname, name(1)) VALUES ('$edited_rent_date', '$edited_due_date', '$edited_actual_return_date', '$edited_customer_name', '$edited_customer_surname', '$edited_dvd_name')");
     }
+
+
+    public static function find_all_users() {
+        return self::find_this_query("SELECT * FROM customers WHERE deleted IS NULL");
+    }
 }
 
 ?>

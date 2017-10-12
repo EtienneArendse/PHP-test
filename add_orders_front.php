@@ -3,12 +3,17 @@
 
 include("orders_back.php");
 
-
 if(!empty($_GET['id'])) {
     $id = $_GET['id'];
     $result_set = orders::find_orders_by_id($id);
 }
 
+
+
+
+$result_set_users = mysqli_fetch_all(orders::find_all_users());
+echo '<pre>';
+var_dump($result_set_users);
 
 ?>
 
@@ -36,8 +41,21 @@ if(!empty($_GET['id'])) {
             <span class="error"> <?php if(!empty($_GET['actual_return_date'])) { echo "* " . $_GET['actual_return_date']; } ?></span>
             <br>
 
-            customer_name:<br>
+            customer:<br>
             <input type="text" name="name">
+
+            <select name="customer_id">
+                <?php 
+                    echo $result_set_users[0][0];
+                    echo 'hi';
+                    for ($x = 0; $x < count($result_set_users); $x++) { 
+                ?>
+                    <option value="<?php echo $result_set_users[$x][0];?>">
+                    <?php echo $result_set_users[$x][1]; ?> <?php echo $result_set_users[$x][2]; ?>
+                    </option>
+                <?php } ?>
+            </select>
+
             <span class="error"> <?php if(!empty($_GET['name'])) { echo "*" . $_GET['name']; } ?></span>
             <br>
             customer_surname:<br>
