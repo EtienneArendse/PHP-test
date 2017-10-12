@@ -69,7 +69,7 @@ if(!empty($_POST)) {
 
     } else {
         global $database;
-        $result_set = orders::add_orders($id, $edited_rent_date, $edited_due_date, $edited_actual_return_date, $edited_customer_name, $edited_customer_surname, $edited_dvd_name);
+        $result_set = orders::add_orders($edited_rent_date, $edited_due_date, $edited_actual_return_date, $edited_customer_name, $edited_customer_surname, $edited_dvd_name);
         
         if($result_set) {
             header('Location: http://localhost/orders.php?add=success');
