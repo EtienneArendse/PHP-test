@@ -23,10 +23,6 @@ if(!empty($_GET['id'])) {
     <body>
         <form action="add_orders_back.php" method="POST">
 
-            customer_id:<br>
-            <input type="text" name="customer_id">
-            <span class="error"> <?php if(!empty($_GET['customer_id'])) { echo "*" . $_GET['customer_id']; } ?></span>
-            <br>
             rent_date:<br>
             <input type="date" name="rent_date">
             <span class="error"> <?php if(!empty($_GET['rent_date'])) { echo "* " . $_GET['rent_date']; } ?></span>
@@ -38,6 +34,19 @@ if(!empty($_GET['id'])) {
             actual_return_date:<br>
             <input type="date" name="actual_return_date">
             <span class="error"> <?php if(!empty($_GET['actual_return_date'])) { echo "* " . $_GET['actual_return_date']; } ?></span>
+            <br>
+
+            customer_name:<br>
+            <input type="text" name="name">
+            <span class="error"> <?php if(!empty($_GET['name'])) { echo "*" . $_GET['name']; } ?></span>
+            <br>
+            customer_surname:<br>
+            <input type="text" name="surname">
+            <span class="error"> <?php if(!empty($_GET['surname'])) { echo "*" . $_GET['surname']; } ?></span>
+            <br>
+            dvd_name:<br>
+            <input type="text" name="name(1)">
+            <span class="error"> <?php if(!empty($_GET['name(1)'])) { echo "*" . $_GET['name(1)']; } ?></span>
             <br>
 
             <input type="submit" value="Submit">
