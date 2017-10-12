@@ -119,7 +119,7 @@ if (isset($_GET["delete"]) && ($_GET["delete"] == "success")) {
 
     <br><br>
 
-    <a href="order.php" class="customerAnchor">Orders</a>
+    <a href="orders.php" class="customerAnchor">Orders</a>
 
   </body>
 </html>
