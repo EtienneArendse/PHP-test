@@ -5,7 +5,7 @@ error_reporting(~0);
 
 include("database.php");
 
-// customer queries setup
+// order queries setup
 
 class Order {
     
@@ -14,9 +14,13 @@ class Order {
     // }
 
     public static function find_all_orders() {
-        return self::find_this_query("SELECT order.id, order.customer_id, order.rent_date, order.due_date, order.actual_return_date, dvd_order.dvd_id 
-                                    FROM order 
-                                    INNER JOIN dvd_order ON order.id=dvd_order.order_id");
+        return self::find_this_query(
+            "SELECT order.id, order.rent_date, order.due_date, order.actual_return_date, dvd_order.dvd_id, customers.name, customers.surname, dvd.name
+            FROM order 
+            INNER JOIN dvd_order ON order.id = dvd_order.order_id
+            INNER JOIN customers ON order.customer_id = customers.id
+            INNER JOIN dvd ON dvd_order.dvd_id = dvd.id
+            ");
     }
 
     // public static function find_user_by_id($user_id) {
@@ -52,7 +56,7 @@ class Order {
     // }
 
     public static function add_order($id, $customer_id, $rent_date, $due_date, $actual_return_date) {
-        return self::find_this_query("INSERT INTO order (id, customer_id, rent_date, due_date, actual_return_date) VALUES ('$id', '$customer_id', '$rent_date', '$due_date', '$actual_return_date')");
+        return self::find_this_query("INSERT INTO order (customer_id, rent_date, due_date, actual_return_date) VALUES ('$customer_id', '$rent_date', '$due_date', '$actual_return_date')");
     }
 }
 

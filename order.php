@@ -5,16 +5,10 @@
 ini_set('display_errors', 1);
 error_reporting(~0);
 
-// include("order_back.php");
+include("order_back.php");
 
-// $result_set = Order::find_all_orders();
+$result_set = Order::find_all_orders();
 
-
-
-// $found_order = order::find_order_by_id(3);
-// echo $found_order['surname'];
-
-// require_once("admin_content.php");
 
 if (isset($_GET["update"]) && ($_GET["update"] == "success")) {
   echo "<script>
