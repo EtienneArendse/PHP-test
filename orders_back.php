@@ -44,8 +44,8 @@ class orders {
     //     return self::find_this_query("UPDATE customers SET name='$edited_name', surname='$edited_surname', contact_number='$edited_contact_number', email='$edited_email', sa_id_number='$edited_sa_id_number', address='$edited_address' WHERE id = $id");
     // }
 
-    public static function add_orders($id, $customer_id, $rent_date, $due_date, $actual_return_date) {
-        return self::find_this_query("INSERT INTO orders (customer_id, rent_date, due_date, actual_return_date) VALUES ('$customer_id', '$rent_date', '$due_date', '$actual_return_date')");
+    public static function add_orders($id, $edited_rent_date, $edited_due_date, $edited_actual_return_date, $edited_customer_name, $edited_customer_surname, $edited_dvd_name) {
+        return self::find_this_query("INSERT INTO orders (rent_date, due_date, actual_return_date, name, surname, name(1)) VALUES ('$id', '$edited_rent_date', '$edited_due_date', '$edited_actual_return_date', '$edited_customer_name', '$edited_customer_surname', '$edited_dvd_name')");
     }
 }
 
