@@ -56,12 +56,13 @@ var_dump($result_set_users);
                 <?php } ?>
             </select>
 
-            <span class="error"> <?php if(!empty($_GET['name'])) { echo "*" . $_GET['name']; } ?></span>
+            <span class="error"> 
+            <?php if(!empty($_GET['name'])) { echo "*" . $_GET['name']; } ?>
+            <?php if(!empty($_GET['surname'])) { echo "*" . $_GET['surname']; } ?>
+            </span>
             <br>
-            customer_surname:<br>
-            <input type="text" name="surname">
-            <span class="error"> <?php if(!empty($_GET['surname'])) { echo "*" . $_GET['surname']; } ?></span>
-            <br>
+            
+
             dvd_name:<br>
             <input type="text" name="name(1)">
             <span class="error"> <?php if(!empty($_GET['name(1)'])) { echo "*" . $_GET['name(1)']; } ?></span>
