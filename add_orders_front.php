@@ -1,12 +1,12 @@
 <?php
-// add order front-end functionality
+// add orders front-end functionality
 
-include("order_back.php");
+include("orders_back.php");
 
 
 if(!empty($_GET['id'])) {
     $id = $_GET['id'];
-    $result_set = Order::find_order_by_id($id);
+    $result_set = orders::find_orders_by_id($id);
 }
 
 
@@ -21,7 +21,7 @@ if(!empty($_GET['id'])) {
     </head>
 
     <body>
-        <form action="add_order_back.php" method="POST">
+        <form action="add_orders_back.php" method="POST">
 
             customer_id:<br>
             <input type="text" name="customer_id">
