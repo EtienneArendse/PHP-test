@@ -45,11 +45,13 @@ if (isset($_GET["delete"]) && ($_GET["delete"] == "success")) {
   <body>
     <table style="width:100%">
       <tr>
-        <th>id</th>
-        <th>customer_id</th> 
+        <th>id</th> 
         <th>rent_date</th>
         <th>due_date</th>
         <th>actual_return_date</th>
+        <th>customer_name</th>
+        <th>customer_surname</th>
+        <th>dvd_name</th>
         <th>actions</th>
       </tr>
       <?php if(!empty($result_set)): ?>
@@ -60,11 +62,6 @@ if (isset($_GET["delete"]) && ($_GET["delete"] == "success")) {
           echo $orders['id'];
           ?>
           </td>
-        <td>
-          <?php
-          echo $orders['customer_id'];
-          ?>
-        </td>
         <td>
           <?php
           echo $orders['rent_date'];
@@ -78,6 +75,21 @@ if (isset($_GET["delete"]) && ($_GET["delete"] == "success")) {
         <td>
           <?php
           echo $orders['actual_return_date'];
+          ?>
+        </td>
+        <td>
+          <?php
+          echo $orders['name'];
+          ?>
+        </td>
+        <td>
+          <?php
+          echo $orders['surname'];
+          ?>
+        </td>
+        <td>
+          <?php
+          echo $orders['name(1)'];
           ?>
         </td>
        
