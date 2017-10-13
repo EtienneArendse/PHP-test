@@ -33,7 +33,7 @@ class mysql_database
     }
 
     public function query($sql) {
-        $result = mysqli_query($this->connection, $sql);
+        $result = mysqli_query($this->connection, $sql) or var_dump(mysqli_error($this->connection));
         $this->confirm_query($result);
         return $result;
     }

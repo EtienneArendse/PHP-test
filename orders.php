@@ -9,7 +9,8 @@ include("orders_back.php");
 
 $result_set = orders::find_all_orderss();
 
-var_dump($result_set);
+// echo '<pre>';
+// var_dump($result_set);
 
 if (isset($_GET["update"]) && ($_GET["update"] == "success")) {
   echo "<script>
@@ -89,7 +90,7 @@ if (isset($_GET["delete"]) && ($_GET["delete"] == "success")) {
         </td>
         <td>
           <?php
-          echo $orders['name(1)'];
+          echo $orders['dvd_name'];
           ?>
         </td>
        

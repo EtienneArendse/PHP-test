@@ -37,43 +37,37 @@ if(!empty($_POST)) {
     }
     
     
-    if (empty($_POST['name'])){
+    if (empty($_POST['customer_id'])){
         $edit_validator++;
-        $customer_nameErr = "name is required";
+        $customer_idErr = "customer_id is required";
     } else {
-        $edited_customer_name = $_POST['name'];
+        $edited_customer_id = $_POST['customer_id'];
     }
 
-    if (empty($_POST['surname'])){
+    if (empty($_POST['dvd_id'])){
         $edit_validator++;
-        $customer_surnameErr = "surname is required";
+        $dvd_idErr = "dvd_id is required";
     } else {
-        $edited_customer_surname = $_POST['surname'];
+        $edited_dvd_id = $_POST['dvd_id'];
     }
 
-    if (empty($_POST['name(1)'])){
-        $edit_validator++;
-        $dvd_nameErr = "name(1) is required";
-    } else {
-        $edited_dvd_name = $_POST['name(1)'];
-    }
 
-    
     if ($edit_validator > 0) {
         $blank_err = 'id=' . $id;
         $blank_err .= '&rent_date=' . $rent_dateErr;
         $blank_err .= '&due_date=' . $due_dateErr;
         $blank_err .= '&actual_return_date=' . $actual_return_dateErr;
 
-        $blank_err .= '&name=' . $customer_nameErr;
-        $blank_err .= '&surname=' . $customer_surnameErr;
-        $blank_err .= '&name(1)=' . $dvd_nameErr;
+        $blank_err .= '&customer_id=' . $customer_idErr;
+
+        $blank_err .= '&dvd_id=' . $dvd_idErr;
         header('Location: http://localhost/add_orders_front.php?' . $blank_err);
 
     } else {
         global $database;
-        $result_set = orders::add_orders($edited_rent_date, $edited_due_date, $edited_actual_return_date, $edited_customer_name, $edited_customer_surname, $edited_dvd_name);
-        
+
+        $result_set = orders::add_orders($edited_rent_date, $edited_due_date, $edited_actual_return_date, $edited_customer_id, $edited_dvd_id);
+
         if($result_set) {
             header('Location: http://localhost/orders.php?add=success');
         }

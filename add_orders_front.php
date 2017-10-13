@@ -12,12 +12,12 @@ if(!empty($_GET['id'])) {
 
 
 $result_set_users = mysqli_fetch_all(orders::find_all_users());
-echo '<pre>';
-var_dump($result_set_users);
+// echo '<pre>';
+// var_dump($result_set_users);
 
 $result_set_dvds = mysqli_fetch_all(orders::find_dvd_by_category_name());
-echo '<pre>';
-var_dump($result_set_dvds);
+// echo '<pre>';
+// var_dump($result_set_dvds);
 
 
 
@@ -64,6 +64,7 @@ var_dump($result_set_dvds);
             <?php if(!empty($_GET['name'])) { echo "*" . $_GET['name']; } ?>
             <?php if(!empty($_GET['surname'])) { echo "*" . $_GET['surname']; } ?>
             </span>
+            <br>
 
 
             dvd_name:
