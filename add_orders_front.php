@@ -20,6 +20,7 @@ echo '<pre>';
 var_dump($result_set_dvds);
 
 
+
 ?>
 
 <!DOCTYPE html>
@@ -47,12 +48,10 @@ var_dump($result_set_dvds);
             <br>
 
             customer:
-            <!-- <input type="text" name="name"> -->
 
             <select name="customer_id" form="add_orders">
                 <?php 
                     echo $result_set_users[0][0];
-                    // echo 'hi';
                     for ($x = 0; $x < count($result_set_users); $x++) { 
                 ?>
                     <option value="<?php echo $result_set_users[$x][0];?>">
@@ -68,12 +67,10 @@ var_dump($result_set_dvds);
 
 
             dvd_name:
-            <!-- <input type="text" name="name(1)"> -->
 
             <select name="dvd_id" form="add_orders">
                 <?php 
                     echo $result_set_dvds[0][0];
-                    // echo 'hi';
                     for ($x = 0; $x < count($result_set_dvds); $x++) { 
                 ?>
                     <option value="<?php echo $result_set_dvds[$x][0];?>">

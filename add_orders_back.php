@@ -1,6 +1,6 @@
 <?php
 
-// var_dump($_POST);
+var_dump($_POST);
 
 // add orders back-end functionality
 
@@ -16,6 +16,7 @@ if(!empty($_POST)) {
         $edit_validator++;
         $rent_dateErr = "rent_date is required";
     } else {
+        $edited_due_date = date("Y-m-d");
         $edited_rent_date = $_POST['rent_date'];
     }
     
@@ -31,6 +32,7 @@ if(!empty($_POST)) {
         $edit_validator++;
         $category_actual_return_date = "actual_return_date is required";
     } else {
+        $edited_due_date = date("Y-m-d");
         $edited_actual_return_date = $_POST['actual_return_date'];
     }
     
@@ -56,6 +58,7 @@ if(!empty($_POST)) {
         $edited_dvd_name = $_POST['name(1)'];
     }
 
+    
     if ($edit_validator > 0) {
         $blank_err = 'id=' . $id;
         $blank_err .= '&rent_date=' . $rent_dateErr;
