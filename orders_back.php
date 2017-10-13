@@ -20,6 +20,7 @@ class orders {
             INNER JOIN dvd_orders ON orders.id = dvd_orders.orders_id
             INNER JOIN customers ON orders.customer_id = customers.id
             INNER JOIN dvd ON dvd_orders.dvd_id = dvd.id
+            WHERE orders.deleted IS NULL
             ");
     }
 
@@ -36,9 +37,15 @@ class orders {
         return $result_set;
     }
 
-    // public static function delete_user($id, $date) {
-    //     return self::find_this_query("UPDATE customers SET deleted='$date' WHERE id = $id");
-    // }
+    public static function delete_orders($id, $date) {
+        
+        $result1 = self::find_this_query("UPDATE orders SET deleted='$date' WHERE id = $id");
+
+        $result2 = self::find_this_query("UPDATE dvd_orders SET deleteds='$date' WHERE orders_id = $id");
+
+        return ($result1 && $result2);
+    }
+
 
     public static function edit_orders($id, $edited_rent_date, $edited_due_date, $edited_actual_return_date, $edited_customer_id, $edited_dvd_id) {
 
