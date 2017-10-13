@@ -67,7 +67,7 @@ if(!empty($_POST)) {
         $blank_err .= '&customer_id=' . $customer_idErr;
 
         $blank_err .= '&dvd_id=' . $dvd_idErr;
-        header('Location: http://localhost/add_orders_front.php?' . $blank_err);
+        header('Location: http://localhost/edit_orders_front.php?' . $blank_err);
 
     } else {
         global $database;
