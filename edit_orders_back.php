@@ -75,10 +75,10 @@ if(!empty($_POST)) {
         $result_set = orders::edit_orders($id, $edited_rent_date, $edited_due_date, $edited_actual_return_date, $edited_customer_id, $edited_dvd_id);
 
         if($result_set) {
-            header('Location: http://localhost/orders.php?edit=success');
+            header('Location: http://localhost/orders.php?update=success');
         }
         else {
-            header('Location: http://localhost/edit_orders_front.php?edit=failed'); 
+            header('Location: http://localhost/edit_orders_front.php?update=failed'); 
         }
     }
 

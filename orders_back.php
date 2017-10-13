@@ -44,9 +44,10 @@ class orders {
 
         $result1 = self::find_this_query("UPDATE orders SET customer_id='$edited_customer_id', rent_date='$edited_rent_date', due_date='$edited_due_date', actual_return_date='$edited_actual_return_date' WHERE id = $id");
 
-        $result2 = self::find_this_query("UPDATE dvd_orders SET dvd_id='$edited_dvd_id', orders_id=LAST_INSERT_ID() WHERE id = $id");
+        $result2 = self::find_this_query("UPDATE dvd_orders SET dvd_id='$edited_dvd_id', orders_id=$id WHERE id = $id");
 
         return ($result1 && $result2);
+
     }
 
 

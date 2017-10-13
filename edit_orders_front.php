@@ -83,6 +83,8 @@ $result_set_dvds = mysqli_fetch_all(orders::find_dvd_by_category_name());
             <span class="error"> <?php if(!empty($_GET['name(1)'])) { echo "*" . $_GET['name(1)']; } ?></span>
             <br>
 
+            <input type="hidden" name="id" value="<?php echo $result_set['id']; ?>">
+
             <input type="submit" value="Submit">
 
         </form>
