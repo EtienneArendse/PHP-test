@@ -52,6 +52,11 @@ class orders {
     public static function find_all_users() {
         return self::find_this_query("SELECT * FROM customers WHERE deleted IS NULL");
     }
+
+
+    public static function find_dvd_by_category_name() {
+        return self::find_this_query("SELECT dvd.id, dvd.name, dvd.description, dvd.release_date, category.category_name FROM dvd INNER JOIN category ON dvd.category_id=category.id WHERE deleted IS NULL");
+    }
 }
 
 ?>

@@ -15,6 +15,11 @@ $result_set_users = mysqli_fetch_all(orders::find_all_users());
 echo '<pre>';
 var_dump($result_set_users);
 
+$result_set_dvds = mysqli_fetch_all(orders::find_dvd_by_category_name());
+echo '<pre>';
+var_dump($result_set_dvds);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -41,13 +46,13 @@ var_dump($result_set_users);
             <span class="error"> <?php if(!empty($_GET['actual_return_date'])) { echo "* " . $_GET['actual_return_date']; } ?></span>
             <br>
 
-            customer:<br>
-            <input type="text" name="name">
+            customer:
+            <!-- <input type="text" name="name"> -->
 
             <select name="customer_id">
                 <?php 
                     echo $result_set_users[0][0];
-                    echo 'hi';
+                    // echo 'hi';
                     for ($x = 0; $x < count($result_set_users); $x++) { 
                 ?>
                     <option value="<?php echo $result_set_users[$x][0];?>">
@@ -60,11 +65,23 @@ var_dump($result_set_users);
             <?php if(!empty($_GET['name'])) { echo "*" . $_GET['name']; } ?>
             <?php if(!empty($_GET['surname'])) { echo "*" . $_GET['surname']; } ?>
             </span>
-            <br>
-            
 
-            dvd_name:<br>
-            <input type="text" name="name(1)">
+
+            dvd_name:
+            <!-- <input type="text" name="name(1)"> -->
+
+            <select name="dvd_id">
+                <?php 
+                    echo $result_set_dvds[0][0];
+                    // echo 'hi';
+                    for ($x = 0; $x < count($result_set_dvds); $x++) { 
+                ?>
+                    <option value="<?php echo $result_set_dvds[$x][0];?>">
+                    <?php echo $result_set_dvds[$x][1]; ?>
+                    </option>
+                <?php } ?>
+            </select>
+
             <span class="error"> <?php if(!empty($_GET['name(1)'])) { echo "*" . $_GET['name(1)']; } ?></span>
             <br>
 
