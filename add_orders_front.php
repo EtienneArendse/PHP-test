@@ -31,7 +31,7 @@ var_dump($result_set_dvds);
     </head>
 
     <body>
-        <form action="add_orders_back.php" method="POST">
+        <form action="add_orders_back.php" method="POST" id="add_orders">
 
             rent_date:<br>
             <input type="date" name="rent_date">
@@ -49,7 +49,7 @@ var_dump($result_set_dvds);
             customer:
             <!-- <input type="text" name="name"> -->
 
-            <select name="customer_id">
+            <select name="customer_id" form="add_orders">
                 <?php 
                     echo $result_set_users[0][0];
                     // echo 'hi';
@@ -70,7 +70,7 @@ var_dump($result_set_dvds);
             dvd_name:
             <!-- <input type="text" name="name(1)"> -->
 
-            <select name="dvd_id">
+            <select name="dvd_id" form="add_orders">
                 <?php 
                     echo $result_set_dvds[0][0];
                     // echo 'hi';
