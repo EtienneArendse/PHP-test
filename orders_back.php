@@ -40,11 +40,18 @@ class orders {
     //     return self::find_this_query("UPDATE customers SET deleted='$date' WHERE id = $id");
     // }
 
-    // public static function edit_user($id, $edited_name, $edited_surname, $edited_contact_number, $edited_email, $edited_sa_id_number, $edited_address) {
-    //     return self::find_this_query("UPDATE customers SET name='$edited_name', surname='$edited_surname', contact_number='$edited_contact_number', email='$edited_email', sa_id_number='$edited_sa_id_number', address='$edited_address' WHERE id = $id");
-    // }
+    public static function edit_orders($id, $edited_rent_date, $edited_due_date, $edited_actual_return_date, $edited_customer_id, $edited_dvd_id) {
+
+        $result1 = self::find_this_query("UPDATE orders SET customer_id='$edited_customer_id', rent_date='$edited_rent_date', due_date='$edited_due_date', actual_return_date='$edited_actual_return_date' WHERE id = $id");
+
+        $result2 = self::find_this_query("UPDATE dvd_orders SET dvd_id='$edited_dvd_id', orders_id=LAST_INSERT_ID() WHERE id = $id");
+
+        return ($result1 && $result2);
+    }
+
 
     public static function add_orders($edited_rent_date, $edited_due_date, $edited_actual_return_date, $edited_customer_id, $edited_dvd_id) {
+
         $result1 = self::find_this_query("INSERT INTO orders (id, customer_id, rent_date, due_date, actual_return_date) VALUES (NULL, '$edited_customer_id', '$edited_rent_date', '$edited_due_date', '$edited_actual_return_date');");
 
 

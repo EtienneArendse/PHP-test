@@ -95,7 +95,7 @@ if (isset($_GET["delete"]) && ($_GET["delete"] == "success")) {
         </td>
        
         <td>
-        <form action="update_orders.php" method="get">
+        <form action="edit_orders_front.php" method="get">
         <input type="hidden" name="id" value="<?php echo $orders['id']; ?>">
         <input type="submit" value="edit">
         </form>
